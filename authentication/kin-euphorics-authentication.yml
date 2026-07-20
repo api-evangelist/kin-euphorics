@@ -1,0 +1,44 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.kineuphorics.com/.well-known/openid-configuration
+docs: https://shopify.dev/docs/api/customer
+summary:
+  types:
+  - openIdConnect
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  provider: Shopify Customer Accounts
+schemes:
+- name: shopifyCustomerAccountsOIDC
+  type: openIdConnect
+  openIdConnectUrl: https://www.kineuphorics.com/.well-known/openid-configuration
+  issuer: https://shopify.com/authentication/27087620
+  authorization_endpoint: https://account.kineuphorics.com/authentication/oauth/authorize
+  token_endpoint: https://account.kineuphorics.com/authentication/oauth/token
+  end_session_endpoint: https://account.kineuphorics.com/authentication/logout
+  jwks_uri: https://account.kineuphorics.com/authentication/.well-known/jwks.json
+  grant_types:
+  - authorization_code
+  - refresh_token
+  - 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+  response_types:
+  - code
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  code_challenge_methods:
+  - S256
+  id_token_signing_alg:
+  - RS256
+  scopes:
+  - openid
+  - email
+  - customer-account-api:full
+  - customer-account-mcp-api:full
+  sources:
+  - well-known/kin-euphorics-openid-configuration.json
+notes: >-
+  Authentication is provided by Shopify Customer Accounts (OpenID Connect /
+  OAuth 2.0 authorization-code flow with PKCE S256). The customer-account
+  issuer also advertises a customer-account-mcp-api:full scope, enabling
+  authenticated MCP access to a shopper's account context.
