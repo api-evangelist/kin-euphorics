@@ -1,0 +1,52 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://www.kineuphorics.com/.well-known/ucp
+server:
+  name: kin-euphorics-shopping
+  transport: http
+  protocol: mcp
+  url: https://kin-cocktails.myshopify.com/api/ucp/mcp
+  standard: UCP (Universal Commerce Protocol)
+  ucp_version: '2026-04-08'
+  supported_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  spec: https://ucp.dev/2026-04-08/specification/overview/
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  service: dev.ucp.shopping
+notes: >-
+  Published Shopify UCP/MCP shopping server for the Kin Euphorics storefront,
+  discovered via /.well-known/ucp. Agents use it for catalog, cart, and
+  checkout; per robots.txt and the UCP spec, payment/checkout completion
+  requires an explicit contemporaneous human approval step. An "embedded"
+  transport variant is also advertised.
+capabilities:
+- id: dev.ucp.shopping.catalog.search
+  description: Search the storefront product catalog
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/catalog_search.json
+- id: dev.ucp.shopping.catalog.lookup
+  description: Look up specific catalog items
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/catalog_lookup.json
+- id: dev.ucp.shopping.cart
+  description: Manage the shopping cart
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/cart.json
+- id: dev.ucp.shopping.checkout
+  description: Initiate checkout (human approval required to complete)
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/checkout.json
+- id: dev.ucp.shopping.discount
+  description: Apply discounts to a cart/checkout
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/discount.json
+- id: dev.ucp.shopping.fulfillment
+  description: Select fulfillment / shipping methods
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/fulfillment.json
+- id: dev.ucp.shopping.order
+  description: Retrieve order state
+  schema: https://ucp.dev/2026-04-08/schemas/shopping/order.json
+- id: dev.shopify.catalog
+  description: Shopify storefront catalog extension
+  schema: https://shopify.dev/ucp/schemas/2026-04-08/shopify_catalog.json
+payment_handlers:
+- com.google.pay
+- dev.shopify.card
+- dev.shopify.shop_pay

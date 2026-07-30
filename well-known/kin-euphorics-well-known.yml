@@ -1,0 +1,30 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of /.well-known/ on the storefront host
+host: https://www.kineuphorics.com
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: kin-euphorics-openid-configuration.json
+  note: Shopify customer-account OpenID Connect discovery (issuer shopify.com/authentication/27087620)
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: kin-euphorics-oauth-authorization-server.json
+  note: RFC 8414 authorization-server metadata (same Shopify customer-account issuer)
+- path: /.well-known/ucp
+  status: 200
+  file: kin-euphorics-ucp.json
+  note: Universal Commerce Protocol discovery advertising an MCP shopping endpoint + payment handlers
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+related:
+- path: /robots.txt
+  status: 200
+  note: documents agents.md, UCP discovery, and the UCP/MCP endpoint; instructs agents to use UCP/MCP for catalog/cart/checkout with human-approved payment
+- path: /agents.md
+  status: 403
+  note: referenced by robots.txt; served behind a Cloudflare challenge to non-browser clients
