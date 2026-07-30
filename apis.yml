@@ -1,8 +1,29 @@
 aid: kin-euphorics
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/kin-euphorics.png
 name: Kin Euphorics
-description: Kin Euphorics is a company surfaced as a portfolio company of canaan-partners and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Kin Euphorics is a non-alcoholic functional beverage company that makes
+  "euphorics" — botanical drinks blending adaptogens, nootropics, and botanics
+  formulated to lift mood, ease stress, and offer a social alternative to
+  alcohol. Co-founded by Jen Batchelor and Bella Hadid, the brand sells
+  ready-to-drink and mixable products such as Kin Spritz, Dream Light,
+  Lightwave, and High Rhode direct to consumers through a Shopify storefront.
+  That storefront exposes a modern agent-commerce surface: a UCP (Universal
+  Commerce Protocol) discovery document advertising an MCP shopping endpoint for
+  catalog search, cart, and checkout, alongside Shopify customer-account OpenID
+  Connect for authentication and Google Pay / Shop Pay payment handlers.
 url: https://raw.githubusercontent.com/api-evangelist/kin-euphorics/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,12 +33,95 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Beverages
+- Non-Alcoholic
+- Functional Beverage
+- Adaptogens
+- Nootropics
+- Consumer Packaged Goods
+- Ecommerce
+- Shopify
+- Direct to Consumer
+- Agentic Commerce
+- UCP
+- MCP
+common:
+- name: Website
+  url: https://www.kineuphorics.com
+  type: DeveloperPortal
+- name: Storefront
+  url: https://www.kineuphorics.com
+  type: Portal
+- name: Customer Account Login
+  url: https://account.kineuphorics.com
+  type: Login
+- name: Customer Account Sign Up
+  url: https://account.kineuphorics.com
+  type: SignUp
+- name: Terms of Service
+  url: https://www.kineuphorics.com/policies/terms-of-service
+  type: TermsOfService
+- name: Privacy Policy
+  url: https://www.kineuphorics.com/policies/privacy-policy
+  type: PrivacyPolicy
+- name: Agent Instructions (agents.md)
+  url: https://www.kineuphorics.com/agents.md
+  type: AgenticAccess
+- name: UCP / MCP Shopping Server
+  url: mcp/kin-euphorics-mcp.yml
+  type: MCPServer
+- name: Well-Known Discovery Index
+  url: well-known/kin-euphorics-well-known.yml
+  type: WellKnown
+- name: OpenID Connect Configuration
+  url: well-known/kin-euphorics-openid-configuration.json
+  type: OpenIDConnect
+- name: Authentication Profile
+  url: authentication/kin-euphorics-authentication.yml
+  type: Authentication
+- name: OAuth Scopes
+  url: scopes/kin-euphorics-scopes.yml
+  type: OAuthScopes
+- name: Domain Security
+  url: security/kin-euphorics-domain-security.yml
+  type: DomainSecurity
+- name: llms.txt
+  url: llms/kin-euphorics-llms.txt
+  type: LLMsTxt
+apis:
+- aid: kin-euphorics:kin-euphorics-storefront
+  name: Kin Euphorics Storefront (UCP / MCP)
+  humanURL: https://www.kineuphorics.com
+  baseURL: https://kin-cocktails.myshopify.com/api/ucp/mcp
+  tags:
+  - Commerce
+  - Shopping
+  - MCP
+  - UCP
+  description: >-
+    The Kin Euphorics Shopify storefront agent-commerce surface. Its UCP
+    discovery document (/.well-known/ucp) advertises a Universal Commerce
+    Protocol shopping service over MCP transport, supporting catalog search and
+    lookup, cart, checkout, discounts, fulfillment, and order capabilities, with
+    Google Pay, Shopify card, and Shop Pay payment handlers. Checkout requires
+    explicit human approval.
+  properties:
+  - url: https://www.kineuphorics.com/.well-known/ucp
+    type: Documentation
+  - url: mcp/kin-euphorics-mcp.yml
+    type: MCPServer
+  - url: well-known/kin-euphorics-ucp.json
+    type: WellKnown
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
