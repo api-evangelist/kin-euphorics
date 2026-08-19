@@ -15,12 +15,9 @@ server:
   spec: https://ucp.dev/2026-04-08/specification/overview/
   schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
   service: dev.ucp.shopping
-notes: >-
-  Published Shopify UCP/MCP shopping server for the Kin Euphorics storefront,
-  discovered via /.well-known/ucp. Agents use it for catalog, cart, and
-  checkout; per robots.txt and the UCP spec, payment/checkout completion
-  requires an explicit contemporaneous human approval step. An "embedded"
-  transport variant is also advertised.
+notes: Published Shopify UCP/MCP shopping server for the Kin Euphorics storefront, discovered via /.well-known/ucp.
+  Agents use it for catalog, cart, and checkout; per robots.txt and the UCP spec, payment/checkout completion
+  requires an explicit contemporaneous human approval step. An "embedded" transport variant is also advertised.
 capabilities:
 - id: dev.ucp.shopping.catalog.search
   description: Search the storefront product catalog
@@ -50,3 +47,11 @@ payment_handlers:
 - com.google.pay
 - dev.shopify.card
 - dev.shopify.shop_pay
+deployment:
+  mode: remote
+  endpoint: https://kin-cocktails.myshopify.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
