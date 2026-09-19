@@ -57,7 +57,7 @@ tags:
 - Shopify
 - Direct to Consumer
 - Agentic Commerce
-- UCP
+- Universal Commerce Protocol
 - MCP
 tags_raw:
 - Company
@@ -124,6 +124,11 @@ apis:
   humanURL: https://www.kineuphorics.com
   baseURL: https://kin-cocktails.myshopify.com/api/ucp/mcp
   tags:
+  - Commerce
+  - Shopping
+  - MCP
+  - Universal Commerce Protocol
+  tags_raw:
   - Commerce
   - Shopping
   - MCP
